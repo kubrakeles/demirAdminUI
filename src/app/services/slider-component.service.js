@@ -1,7 +1,7 @@
 export class SliderComponentService {
     constructor() {
       this.addSliderFrom = document.getElementById("AddSliderFrom");
-      this.fotoUpload = document.getElementById("slider-foto-upload");
+      this.fotoUpload = document.getElementById("upload");
       this.addSliderBtn = document.getElementById("AddBtn");
       this.SlidertoTable = document.getElementById("ReferenceTable");
       this.UpdateBtn=document.getElementById("UpdateBtn"); //news tablosunu alıyoruz
@@ -9,7 +9,7 @@ export class SliderComponentService {
         }
     getInputs() 
     {
-    let uploadImage=addSliderFrom.upload.files[0];
+    let uploadImage=this.addSliderFrom.upload.files[0];
     console.log(uploadImage);
     }
     setResultToTable(str) { //gelen inputu burada tabloya gömüyoruz.
