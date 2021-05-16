@@ -1,16 +1,15 @@
 export class SliderComponentService {
     constructor() {
       this.addSliderFrom = document.getElementById("AddSliderFrom");
-      this.fotoUpload = document.getElementById("upload");
+      this.fotoUpload = document.getElementById("slider-foto-upload");
       this.addSliderBtn = document.getElementById("AddBtn");
-      this.SlidertoTable = document.getElementById("ReferenceTable");
+      this.SlidertoTable = document.getElementById("SliderTable");
       this.UpdateBtn=document.getElementById("UpdateBtn"); //news tablosunu alıyoruz
       //this.resultDiv = document.getElementById("result");
         }
     getInputs() 
     {
-    let uploadImage=this.addSliderFrom.upload.files[0];
-    console.log(uploadImage);
+
     }
     setResultToTable(str) { //gelen inputu burada tabloya gömüyoruz.
         // NewsTable
@@ -40,11 +39,12 @@ export class SliderComponentService {
       }
     }
     onClick(cb) {
+    
       this.addSliderBtn.addEventListener("click", cb);
     }
     onClickDeleteOrUpdate(cb){
       this.addSliderBtn.style.display="inline-block";
-      this.ReferencetoTable.addEventListener("click",cb);   
+      this.SlidertoTable.addEventListener("click",cb);   
     }
     onTargetId(str){
       const value=str.target.parentElement.previousElementSibling.previousElementSibling.textContent;
