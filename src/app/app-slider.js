@@ -23,7 +23,7 @@ export const run = (SliderComponentService) => {
       const formData=new FormData();
       formData.append('fileName',fileName.files[0]);
     
-      const req=fetch('https://localhost:44344/api/Home/AddSliderImage', {
+      const req=fetch('https://service.demiralpelektronik.com/api/Home/AddSliderImage', {
         method: 'POST',
         headers: { 'Authorization': 'Bearer '+storage.getTokenFromStorage()
             ,'Content-Type': 'application/json' },
@@ -43,7 +43,7 @@ export const run = (SliderComponentService) => {
           {
           const id=e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
           var deleteNewsObj={id:id,news:""};
-          const req=fetch('https://localhost:44344/api/Home/DeleteReference',{
+          const req=fetch('https://service.demiralpelektronik.com/api/Home/DeleteReference',{
             method:'POST',
             headers: { 'Authorization': 'Bearer '+storage.getTokenFromStorage()
             ,'Content-Type': 'application/json' },
@@ -75,7 +75,7 @@ export const run = (SliderComponentService) => {
         });
         SliderComponentService.onClickUpdate((e)=>{
           const input = SliderComponentService.getInputs();
-            const req=fetch('https://localhost:44344/api/Home/UpdateSlider',{
+            const req=fetch('https://service.demiralpelektronik.com/api/Home/UpdateSlider',{
               method:'POST',
               headers: { 'Authorization':'Bearer '+storage.getTokenFromStorage()
               ,'Content-Type': 'application/json' },

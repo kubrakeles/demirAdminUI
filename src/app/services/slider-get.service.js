@@ -6,7 +6,7 @@ export class getServices
     async getTakeDataFromApi()
      {
         var getvalue;
-        const response = await fetch('https://localhost:44344/api/Home/reference', {
+        const response = await fetch('https://service.demiralpelektronik.com/api/Home/reference', {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + this.storageToken
@@ -21,7 +21,7 @@ export class getServices
     {
        var value;
       
-       const response=await fetch('https://localhost:44344/api/Home/ReferenceById?id='+id,
+       const response=await fetch('https://service.demiralpelektronik.com/api/Home/ReferenceById?id='+id,
        {
            method:'GET',
            headers:{

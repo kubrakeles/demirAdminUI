@@ -17,7 +17,7 @@ export const run = (NewsComponentService) => {
         //POST= butona tıklandıktan sonra datayı alarak POST işlemi gerçekleştiriliyor
       NewsComponentService.onClick(() => {
       const inputNews = NewsComponentService.getInputs();
-      const req=fetch('https://localhost:44344/api/Home/AddNews', {
+      const req=fetch('https://service.demiralpelektronik.com/api/Home/AddNews', {
         method: 'POST',
         headers: { 'Authorization': 'Bearer '+storage.getTokenFromStorage()
             ,'Content-Type': 'application/json' },
@@ -39,7 +39,7 @@ export const run = (NewsComponentService) => {
           {
           const id=e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
           var deleteNewsObj={id:id,news:""};
-          const req=fetch('https://localhost:44344/api/Home/DeleteNews',{
+          const req=fetch('https://service.demiralpelektronik.com/api/Home/DeleteNews',{
             method:'POST',
             headers: { 'Authorization': 'Bearer '+storage.getTokenFromStorage()
             ,'Content-Type': 'application/json' },
@@ -71,7 +71,7 @@ export const run = (NewsComponentService) => {
         });
         NewsComponentService.onClickUpdate((e)=>{
           const inputNews = NewsComponentService.getInputs();
-            const req=fetch('https://localhost:44344/api/Home/UpdateNews',{
+            const req=fetch('https://service.demiralpelektronik.com/api/Home/UpdateNews',{
               method:'POST',
               headers: { 'Authorization':'Bearer '+storage.getTokenFromStorage()
               ,'Content-Type': 'application/json' },

@@ -7,7 +7,7 @@ export class getNewsServices
     async getTakeNewsDataFromApi()
      {
         var getvalue;
-        const response = await fetch('https://localhost:44344/api/Home/News', {
+        const response = await fetch('https://service.demiralpelektronik.com/api/Home/News', {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + this.storageToken
@@ -21,7 +21,7 @@ export class getNewsServices
     {
        var value;
       
-       const response=await fetch('https://localhost:44344/api/Home/NewsById?id='+id,
+       const response=await fetch('https://service.demiralpelektronik.com/api/Home/NewsById?id='+id,
        {
            method:'GET',
            headers:{

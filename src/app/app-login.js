@@ -9,11 +9,12 @@ export const run = (componentService) => {
       var token;
       const [mail, password] = inputs;
       console.log(mail);
-      fetch('https://localhost:44344/api/auth/login',{
+      fetch('https://service.demiralpelektronik.com/api/auth/login',{
     method:'POST',
-    headers:{'Content-Type':'application/json'},
+    headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'http://localhost:8080','Access-Control-Allow-Credentials':'true'},
     body:JSON.stringify({
         email:mail,
+   
         password:password
     })
     
