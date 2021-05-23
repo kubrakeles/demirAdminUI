@@ -7,6 +7,10 @@ export const run = (SliderComponentService) => {
     const storageToken=storage.getTokenFromStorage();
     const getservices =new getServices(storageToken);
     const alert=new AlertService();
+    if(storageToken===null){
+      location.replace("/login.html");
+    }else{
+
    //Get işlemi için new-get serviceden fonk. çağırıyoruz.
    getservices.getTakeDataFromApi()
    .then(references=>SliderComponentService.setResultToTable(references))
@@ -16,13 +20,13 @@ export const run = (SliderComponentService) => {
 
         //POST= butona tıklandıktan sonra datayı alarak POST işlemi gerçekleştiriliyor
      SliderComponentService.onClick(() => {
-       console.log("jhklkkljl");
 
-      const fileName = document.getElementById('slider-foto-upload');
-      console.log(fileName.files[0]);
+      const inpFile = document.getElementById('slider-foto-upload');
       const formData=new FormData();
-      formData.append('fileName',fileName.files[0]);
-    
+      
+      formData.append(inpFile,inpFile.files[0]);
+     console.log(inpFile.files);
+
       const req=fetch('https://service.demiralpelektronik.com/api/Home/AddSliderImage', {
         method: 'POST',
         headers: { 'Authorization': 'Bearer '+storage.getTokenFromStorage()
@@ -30,6 +34,7 @@ export const run = (SliderComponentService) => {
         body: formData
     })
     .then(function (data) {
+      console.log(data);
         getservices.getTakeDataFromApi()
       .then(references=>SliderComponentService.setResultToTable(references), alert.displayMessages("Ekleme işlemi başarılı","success"))
       .catch(err=>console.log(err));
@@ -64,12 +69,10 @@ export const run = (SliderComponentService) => {
             const targetId=SliderComponentService.onTargetId(e);
             //Güncelleme  
             console.log(targetId);
-            sessionStorage.setItem("updateID",targetId);
-                       
+            sessionStorage.setItem("updateID",targetId);   
             getservices.getTakeByIdFromApi(targetId)
             .then(references=>SliderComponentService.setResultToNextTextForUpdate(references.referenceName))
             .catch(err=>console.log(err));
-
            //Güncelleme işlemleri
           }
         });
@@ -85,6 +88,7 @@ export const run = (SliderComponentService) => {
             })
             })
             .then(function (data) {
+           
               getservices.getTakeDataFromApi()
               .then(references=>SliderComponentService.setResultToTable(references), alert.displayMessages("Güncelleme işlemi başarılı","info"))
               .then(references=>references.id="")
@@ -92,5 +96,5 @@ export const run = (SliderComponentService) => {
             })
             .catch(err => console.log(err));
     });
-  };
+}};
 

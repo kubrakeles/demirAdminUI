@@ -14,7 +14,6 @@ export const run = (componentService) => {
     headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'http://localhost:8080','Access-Control-Allow-Credentials':'true'},
     body:JSON.stringify({
         email:mail,
-   
         password:password
     })
     
@@ -23,10 +22,13 @@ export const run = (componentService) => {
     .then(data=>
         {token=data.token;
             if(token!==null){
-            
                 mainStorage.addTokenToStorage(token);
-                console.log(mainStorage.getTokenFromStorage());
+                //console.log(mainStorage.getTokenFromStorage());
                location.replace("/index.html");
+            }
+            else
+            {
+                location.replace("/login.html");
             }
         })
     .catch(err=>console.log(err));

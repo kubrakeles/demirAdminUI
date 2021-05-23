@@ -48,7 +48,7 @@ export const run = (ReferenceComponentService) => {
           })
           })
           .then(function (data) {
-            services.getTakeDataFromApi()
+            getservices.getTakeDataFromApi()
             .then(references=>ReferenceComponentService.setResultToTable(references), alert.displayMessages("Silme işlemi başarılı","danger"))
             .catch(err=>console.log(err));
           })

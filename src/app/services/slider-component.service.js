@@ -2,9 +2,9 @@ export class SliderComponentService {
     constructor() {
       this.addSliderFrom = document.getElementById("AddSliderFrom");
       this.fotoUpload = document.getElementById("slider-foto-upload");
-      this.addSliderBtn = document.getElementById("AddBtn");
+      this.addSliderBtn = document.getElementById("AddSliderBtn");
       this.SlidertoTable = document.getElementById("SliderTable");
-      this.UpdateBtn=document.getElementById("UpdateBtn"); //news tablosunu alıyoruz
+      this.UpdateBtn=document.getElementById("UpdateSliderBtn"); //news tablosunu alıyoruz
       //this.resultDiv = document.getElementById("result");
         }
     getInputs() 
@@ -16,7 +16,7 @@ export class SliderComponentService {
         document.getElementById("UpdateBtn").style.display="none";
         this.ReferenceText.value="";
         this.SlidertoTable.innerHTML="";
-        this.addSliderBtn.style.display="inline-block";
+        //this.addSliderBtn.style.display="inline-block";
       //this.resultDiv.innerText = str;
       //haberleri arayüze eklemek için yapılacak.
       for(let i=0;i<=str.length;i++){
@@ -51,7 +51,7 @@ export class SliderComponentService {
       return value;
     }
     onClickUpdate(cb){
-      this.addSliderBtn.style.display="none";
+      //this.addSliderBtn.style.display="none";
       //this.UpdateBtn.style.display="inline-block";
       this.UpdateBtn.addEventListener("click",cb);
     }
