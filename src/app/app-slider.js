@@ -20,17 +20,17 @@ export const run = (SliderComponentService) => {
 
         //POST= butona tıklandıktan sonra datayı alarak POST işlemi gerçekleştiriliyor
      SliderComponentService.onClick(() => {
-
-      const inpFile = document.getElementById('slider-foto-upload');
+      const formFile = document.getElementById('slider-foto-upload');
+      var files=formFile.files;
       const formData=new FormData();
       
-      formData.append(inpFile,inpFile.files[0]);
-     console.log(inpFile.files);
+     formData.append('formFile',files[0],files[0].name);
+     console.log(formFile.files);
 
       const req=fetch('https://service.demiralpelektronik.com/api/Home/AddSliderImage', {
         method: 'POST',
         headers: { 'Authorization': 'Bearer '+storage.getTokenFromStorage()
-            ,'Content-Type': 'application/json' },
+             },
         body: formData
     })
     .then(function (data) {
